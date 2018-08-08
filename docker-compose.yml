@@ -1,0 +1,32 @@
+version: '3.4'
+
+services:
+  zookeeper:
+    image: confluent/zookeeper
+    ports:
+      - "2181:2181"
+
+  kafka:
+    image: confluent/kafka
+    ports:
+      - "9092:9092"
+    links:
+      - zookeeper
+    depends_on:
+      - zookeeper
+
+  kafka-manager:
+    image: hlebalbau/kafka-manager
+    restart: always
+    links:
+      - zookeeper
+      - kafka
+    depends_on:
+      - zookeeper
+      - kafka
+    ports:
+      - "9001:9000"
+    environment:
+      ZK_HOSTS: "zookeeper:2181"
+      APPLICATION_SECRET: "random-secret"
+    command: -Dpidfile.path=/dev/null
