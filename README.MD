@@ -9,3 +9,5 @@ Burada kafkanın host ayarlarının default olarak tanımlanmasından kaynaklana
 host adresini alıp devam ediyor. Hosts dosyasına `127.0.0.1 84375d4a6909` şeklinde kayıt eklenmesi sorunu çözecektir. 
 
 (Production ortamında host adresleri docker-compose üzerinden uygulama configurasyonuna tanımlanabildiği için doğru configure edilmesi durumunda sorun oluşmaz)
+
+<img src="Images/Screenshot.png" alt="screenshot" width="600px"/>
